@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 public class CommonBase {
     public WebDriver webDriver;
 
@@ -18,8 +20,9 @@ public class CommonBase {
         options.addArguments("--remote-allow-origins=*");
         webDriver = new ChromeDriver(options);
         webDriver.get(url);
+        webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         return webDriver;
     }
 

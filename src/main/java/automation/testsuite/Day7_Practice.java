@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class Day7_Practice extends CommonBase {
     @BeforeMethod
     public void openChrome() throws InterruptedException {
-        initChromeDriver(CT_Common.URL);
+        initChromeDriver(CT_Common.URL_bep_an_toan);
     }
 
     @Test
