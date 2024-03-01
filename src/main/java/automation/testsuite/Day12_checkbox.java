@@ -35,4 +35,15 @@ public class Day12_checkbox extends CommonBase {
             }
         }
     }
+
+    @Test
+    public void clickMultiCheckbox3() {
+        List<WebElement> listCheckbox = webDriver.findElements(By.xpath("(//div[@class='panel-body'])[3]/descendant::input[@type='checkbox']"));
+        for(int i = 1; i<= listCheckbox.size(); i++){
+            WebElement checkbox = webDriver.findElement(By.xpath("(//div[@class='panel-body'])[3]//div[@class='checkbox'][" + (i) + "]//input"));
+            if(i == 2 && !checkbox.isSelected() ){
+                checkbox.click();
+            }
+        }
+    }
 }

@@ -8,4 +8,7 @@ public class CT_Common {
     public static String URL_seleniumeasy_checkbox = "https://demo.seleniumeasy.com/basic-checkbox-demo.html";
     public static String URL_seleniumeasy_radio = "https://demo.seleniumeasy.com/basic-radiobutton-demo.html";
     public static String URL_seleniumeasy_input_form = "http://demo.seleniumeasy.com/input-form-demo.html";
+    public static String URL_seleniumeasy_select = "http://demo.seleniumeasy.com/basic-select-dropdown-demo.html";
+
+    public static String URL_rise_signin = "https://rise.fairsketch.com/signin";
 }
