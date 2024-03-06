@@ -1,4 +1,4 @@
-package automation.test;
+package automation.testsuite;
 
 import automation.common.CommonBase;
 import automation.constant.CT_Account;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTest extends CommonBase {
+public class Day13_LoginTest extends CommonBase {
 
     @BeforeMethod
     public void openChrome() throws InterruptedException {

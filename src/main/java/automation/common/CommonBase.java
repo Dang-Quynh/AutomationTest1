@@ -11,10 +11,10 @@ public class CommonBase {
     public WebDriver webDriver;
 
     public WebDriver initChromeDriver(String url) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
 
-//        WebDriverManager.chromedriver().clearDriverCache();
-//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache();
+        WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

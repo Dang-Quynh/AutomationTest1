@@ -11,4 +11,8 @@ public class CT_Account {
     public static By DROPDOWN_USER = By.id("user-dropdown");
     public static By DROPDOWN_ITEM_SIGN_OUT = By.xpath("//a[@class='dropdown-item' and contains(normalize-space(), 'Sign Out')]");
     public static By SIGNIN_FORM = By.id("signin-form");
+
+    public static By EMAIL_FORMAT_ERROR = By.xpath("//span[@id='email-error' and text()='Please enter a valid email address.']");
+    public static By EMAIL_EMPTY = By.xpath("//span[@id='email-error' and text()='This field is required.']");
+    public static By PASSWORD_EMPTY = By.xpath("//span[@id='password-error' and text()='This field is required.']");
 }

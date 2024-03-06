@@ -1,4 +1,4 @@
-package automation.test;
+package automation.testsuite;
 
 import automation.common.CommonBase;
 import automation.constant.CT_Account;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LogoutTest extends CommonBase {
+public class Day13_LogoutTest extends CommonBase {
     @BeforeMethod
     public void openChrome() throws InterruptedException {
         initChromeDriver(CT_Common.URL_rise_signin);

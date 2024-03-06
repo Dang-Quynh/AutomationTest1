@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class Day8_Practice2 extends CommonBase {
     @BeforeMethod
     public void openChrome() throws InterruptedException {
-        initChromeDriver(CT_Common.URL_alada);
+        initChromeDriver(CT_Common.URL_alada_signup);
     }
 
     @Test
