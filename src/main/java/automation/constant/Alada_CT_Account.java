@@ -25,7 +25,10 @@ public class Alada_CT_Account {
     public static By SIGNUP_FAIL_PHONE_ERROR_LENGTH = By.xpath("//label[@id='txtPhone-error' and normalize-space()='Số điện thoại phải từ 10-11 số.']");
     public static By SIGNUP_FAIL_PHONE_NotNUMBER = By.xpath("//label[@id='txtPhone-error' and normalize-space()='Vui lòng nhập con số']");
     // change password
-    public static By DROPDOWN_ACCOUNT_INFO = By.xpath("//li[@id='showsub']/a");
-    public static By DROPDOWN_ITEM_EDIT_INFO = By.xpath("//ul[@id='subulmenu']/descendant::a[text()='Chỉnh sửa thông tin']");
-    public static By BTN_LOGOUT = By.xpath("//ul[@id='subulmenu']/descendant::a[text()='Thoát']");
+    public static By CHANGEPASS_FAIL_PASSWORD_EMPTY = By.xpath("//label[@id='txtpassword-error' and text()='Vui lòng nhập mật khẩu hiện tại']");
+    public static By CHANGEPASS_FAIL_NEWPASSWORD_EMPTY = By.xpath("//label[@id='txtnewpass-error' and text()='Vui lòng nhập mật khẩu mới']");
+    public static By CHANGEPASS_FAIL_NEWPASSWORD_FORMAT = By.xpath("//label[@id='txtnewpass-error' and text()='Mật khẩu phải có ít nhất 6 ký tự']");
+    public static By CHANGEPASS_FAIL_ReNEWPASSWORD_EMPTY = By.xpath("//label[@id='txtrenewpass-error' and text()='Vui lòng nhập lại mật khẩu mới']");
+    public static By CHANGEPASS_FAIL_ReNEWPASSWORD_FORMAT = By.xpath("//label[@id='txtrenewpass-error' and text()='Mật khẩu phải có ít nhất 6 ký tự']");
+    public static By CHANGEPASS_FAIL_ReNEWPASSWORD_NotEQUAL_NEWPASSWORD = By.xpath("//label[@id='txtrenewpass-error' and text()='Mật khẩu bạn nhập không khớp']");
 }

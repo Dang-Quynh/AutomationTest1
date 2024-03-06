@@ -6,8 +6,6 @@ import automation.constant.CT_Common;
 import automation.page.Day14h_AccountInfoPageFactory;
 import automation.page.Day14h_SigninPageFactory;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,9 +15,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class Day14h_ChangePasswordTest extends CommonBase {
-    private String emailIndexTest = "3";
-    private String currentPassword = "123456";
-    private String newPassword = "1234567";
+    private String currentPassword = "1234567";
+    private String newPassword = "123456";
     private String email = "quynh@gmail.com";
 
     @BeforeMethod
@@ -27,29 +24,82 @@ public class Day14h_ChangePasswordTest extends CommonBase {
         webDriver = initChromeDriver(CT_Common.URL_alada_signin);
     }
 
-
-
-    @Test(priority = 1)
-    public void changePasswordSuccess() throws InterruptedException {
+    private void navigateToAccountInfoPage(Day14h_AccountInfoPageFactory accountInfoPage) throws InterruptedException {
         //login
         Day14h_SigninPageFactory signupPage = new Day14h_SigninPageFactory(webDriver);
-        signupPage.loginFunction("quynh@gmail.com", "123456");
-
+        signupPage.loginFunction(this.email, this.currentPassword);
+        Thread.sleep(1000);
         //navigate to account info
-        WebElement dropdownAccountInfo = webDriver.findElement(Alada_CT_Account.DROPDOWN_ACCOUNT_INFO);
-        if(dropdownAccountInfo.isDisplayed()){
-            dropdownAccountInfo.click();
-            Thread.sleep(1000);
-            WebElement btnEditInfo = webDriver.findElement(Alada_CT_Account.DROPDOWN_ITEM_EDIT_INFO);
-            if(btnEditInfo.isDisplayed()){
-                btnEditInfo.click();
-            }
-        }
-        Thread.sleep(2000);
-        // change password
-        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
-        accountInfoPage.changePasswordFunction(currentPassword, newPassword, newPassword);
+        accountInfoPage.navigateAccountInfoPage();
+        Thread.sleep(1000);
+    }
 
+    @Test(priority = 1)
+    public void changePasswordFail_CurrentPassword_Empty() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction("", newPassword, newPassword);
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_PASSWORD_EMPTY).isDisplayed());
+    }
+
+    @Test(priority = 2)
+    public void changePasswordFail_NewPassword_Empty() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction(currentPassword, "", newPassword);
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_NEWPASSWORD_EMPTY).isDisplayed());
+    }
+
+    // sai format >= 6 ký tự
+    @Test(priority = 3)
+    public void changePasswordFail_NewPassword_Incorrect_Format() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction(currentPassword, "1234", newPassword);
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_NEWPASSWORD_FORMAT).isDisplayed());
+    }
+
+    @Test(priority = 4)
+    public void changePasswordFail_ReNewPassword_Empty() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction(currentPassword, newPassword, "");
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_ReNEWPASSWORD_EMPTY).isDisplayed());
+    }
+
+    @Test(priority = 5)
+    public void changePasswordFail_ReNewPassword_Incorrect_Format() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction(currentPassword, newPassword, "1234");
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_ReNEWPASSWORD_FORMAT).isDisplayed());
+    }
+
+    @Test(priority = 6)
+    public void changePasswordFail_ReNewPassword_NotEqual() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+
+        // change password
+        accountInfoPage.changePasswordFunction(currentPassword, "123456", "123457");
+        Assert.assertTrue(webDriver.findElement(Alada_CT_Account.CHANGEPASS_FAIL_ReNEWPASSWORD_NotEQUAL_NEWPASSWORD).isDisplayed());
+    }
+
+    @Test(priority = 7)
+    public void changePasswordSuccess() throws InterruptedException {
+        Day14h_AccountInfoPageFactory accountInfoPage = new Day14h_AccountInfoPageFactory(webDriver);
+        this.navigateToAccountInfoPage(accountInfoPage);
+        accountInfoPage.changePasswordFunction(currentPassword, newPassword, newPassword);
 
         // sent form change password successfully -> display alert -> accept to close alert
         try {
@@ -62,14 +112,13 @@ public class Day14h_ChangePasswordTest extends CommonBase {
         }
     }
 
-    @Test(priority = 3)
+    @Test(priority = 8)
     public void loginByNewPassword() throws InterruptedException {
         Day14h_SigninPageFactory signinPage = new Day14h_SigninPageFactory(webDriver);
         Thread.sleep(2000);
         // login by new password
-//        signinPage.loginFunction(email, newPassword);
+        signinPage.loginFunction(email, newPassword);
         Thread.sleep(2000);
-
         Assert.assertTrue(webDriver.findElement(Alada_CT_Account.MY_COURSE_TEXT).isDisplayed());
     }
 }
