@@ -15,4 +15,5 @@ public class CT_Common {
     public static String URL_alada_signup = "https://alada.vn/tai-khoan/dang-ky.html";
     public static String URL_alada = "https://alada.vn/";
     public static String URL_alada_signin = "https://alada.vn/tai-khoan/dang-nhap.html";
+    public static String URL_techydevs = "https://techydevs.com/demos/themes/html/trizen-demo/trizen/index.html";
 }

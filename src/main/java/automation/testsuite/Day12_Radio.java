@@ -2,12 +2,10 @@ package automation.testsuite;
 
 import automation.common.CommonBase;
 import automation.constant.CT_Common;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class Day12_Radio extends CommonBase {
     @BeforeMethod

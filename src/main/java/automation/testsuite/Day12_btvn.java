@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 public class Day12_btvn extends CommonBase {
     @BeforeMethod
     public void openChrome() throws InterruptedException {
