@@ -16,17 +16,17 @@ public class Day8_Practice2 extends CommonBase {
     @Test
     public void testLocator() throws InterruptedException {
         Thread.sleep(1000);
-        WebElement txtName = webDriver.findElement(By.id("txtFirstname"));
+        WebElement txtName = driver.findElement(By.id("txtFirstname"));
         System.out.println("Họ và tên"+ txtName);
-        WebElement txtEmail = webDriver.findElement(By.id("txtEmail"));
+        WebElement txtEmail = driver.findElement(By.id("txtEmail"));
         System.out.println("Email"+ txtEmail);
-        WebElement txtReEmail = webDriver.findElement(By.id("txtCEmail"));
+        WebElement txtReEmail = driver.findElement(By.id("txtCEmail"));
         System.out.println("Re Email"+ txtReEmail);
-        WebElement txtPassword = webDriver.findElement(By.id("txtPassword"));
+        WebElement txtPassword = driver.findElement(By.id("txtPassword"));
         System.out.println("Password"+ txtPassword);
-        WebElement txtCPassword = webDriver.findElement(By.id("txtCPassword"));
+        WebElement txtCPassword = driver.findElement(By.id("txtCPassword"));
         System.out.println("Re Password"+ txtCPassword);
-        WebElement txtPhone = webDriver.findElement(By.id("txtPhone"));
+        WebElement txtPhone = driver.findElement(By.id("txtPhone"));
         System.out.println("Điện thoại"+ txtPhone);
     }
 }

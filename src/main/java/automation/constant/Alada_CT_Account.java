@@ -31,4 +31,19 @@ public class Alada_CT_Account {
     public static By CHANGEPASS_FAIL_ReNEWPASSWORD_EMPTY = By.xpath("//label[@id='txtrenewpass-error' and text()='Vui lòng nhập lại mật khẩu mới']");
     public static By CHANGEPASS_FAIL_ReNEWPASSWORD_FORMAT = By.xpath("//label[@id='txtrenewpass-error' and text()='Mật khẩu phải có ít nhất 6 ký tự']");
     public static By CHANGEPASS_FAIL_ReNEWPASSWORD_NotEQUAL_NEWPASSWORD = By.xpath("//label[@id='txtrenewpass-error' and text()='Mật khẩu bạn nhập không khớp']");
+
+    // change password locale
+    public static By CURRENT_PASSWORD_TEXTBOX = By.id("txtpassword");
+
+    public static By NEW_PASSWORD_TEXTBOX = By.id("txtnewpass");
+
+    public static By Re_NEW_PASSWORD_TEXTBOX = By.id("txtrenewpass");
+
+    public static By SAVE_BUTTON = By.xpath("//button[normalize-space()='Lưu mật khẩu mới']");
+
+    public static By ACCOUNT_INFO_DROPDOWN = By.xpath("//li[@id='showsub']/a");
+
+    public static By EDIT_INFO_DROPDOWN_ITEM = By.xpath("//ul[@id='subulmenu']/descendant::a[text()='Chỉnh sửa thông tin']");
+
+    public static By LAST_ELEMENT_TO_SCROLL = By.cssSelector("#thongtinchung div:last-child");
 }

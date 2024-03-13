@@ -25,9 +25,9 @@ public class Day8_Practice extends CommonBase {
 
 
         Thread.sleep(1000);
-        WebElement linkTextHood = webDriver.findElement(By.linkText("Bếp Từ"));
+        WebElement linkTextHood = driver.findElement(By.linkText("Bếp Từ"));
         System.out.println("Bếp từ"+ linkTextHood);
-        WebElement partLinkTextInductionCooker = webDriver.findElement(By.partialLinkText("hút mùi"));
+        WebElement partLinkTextInductionCooker = driver.findElement(By.partialLinkText("hút mùi"));
         System.out.println("hút mùi"+ partLinkTextInductionCooker);
     }
 }

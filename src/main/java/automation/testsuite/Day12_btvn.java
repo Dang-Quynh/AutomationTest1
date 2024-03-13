@@ -16,18 +16,18 @@ public class Day12_btvn extends CommonBase {
 
     @Test
     public void selectStatus() {
-        Select select = new Select(webDriver.findElement(By.xpath("//select[@name='state']")));
+        Select select = new Select(driver.findElement(By.xpath("//select[@name='state']")));
         select.selectByVisibleText("Alaska");
     }
 
     @Test
     public void clickRadioHosting() {
-        WebElement radioYes = webDriver.findElement(By.xpath("//input[@name='hosting' and @value='yes']"));
+        WebElement radioYes = driver.findElement(By.xpath("//input[@name='hosting' and @value='yes']"));
         if(radioYes.isEnabled() && !radioYes.isSelected()){
             radioYes.click();
         }
         else{
-            WebElement radioNo = webDriver.findElement(By.xpath("//input[@name='hosting' and @value='no']"));
+            WebElement radioNo = driver.findElement(By.xpath("//input[@name='hosting' and @value='no']"));
             if(!radioNo.isSelected()){
                 radioNo.click();
             }

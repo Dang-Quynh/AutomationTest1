@@ -35,7 +35,8 @@ public class Day15_Search_Flight {
         datePickerDeparting.sendKeys(Keys.TAB);
 
         WebElement dropdownPassenger = driver.findElement(Day15_Flight.PASSENGER_DROPDOWN);
-
+        dropdownPassenger.click();
+        WebElement AdultItem = driver.findElement(Day15_Flight.PASSENGER_DROPDOWN);
 
         WebElement dropdownCoach = driver.findElement(Day15_Flight.COACH_DROPDOWN);
 

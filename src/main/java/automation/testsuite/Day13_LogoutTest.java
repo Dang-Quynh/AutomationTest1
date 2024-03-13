@@ -19,13 +19,13 @@ public class Day13_LogoutTest extends CommonBase {
 
     @Test
     public void logout(){
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunction("admin@demo.com","riseDemo");
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 
-        HomePage homePage = new HomePage(webDriver);
+        HomePage homePage = new HomePage(driver);
         homePage.logoutFunction();
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        Assert.assertTrue(webDriver.findElement(CT_Account.SIGNIN_FORM).isDisplayed());
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        Assert.assertTrue(driver.findElement(CT_Account.SIGNIN_FORM).isDisplayed());
     }
 }

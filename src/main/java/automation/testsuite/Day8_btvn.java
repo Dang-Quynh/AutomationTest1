@@ -16,13 +16,13 @@ public class Day8_btvn extends CommonBase {
     @Test
     public void testLocator() throws InterruptedException {
         Thread.sleep(1000);
-        WebElement txtName = webDriver.findElement(By.id("name"));
+        WebElement txtName = driver.findElement(By.id("name"));
         System.out.println("Họ và tên "+ txtName);
-        WebElement txtAddress = webDriver.findElement(By.id("address"));
+        WebElement txtAddress = driver.findElement(By.id("address"));
         System.out.println("Địa chỉ "+ txtAddress);
-        WebElement txtEmail = webDriver.findElement(By.id("email"));
+        WebElement txtEmail = driver.findElement(By.id("email"));
         System.out.println("Email "+ txtEmail);
-        WebElement txtPassword = webDriver.findElement(By.id("password"));
+        WebElement txtPassword = driver.findElement(By.id("password"));
         System.out.println("Password"+ txtPassword);
     }
 }

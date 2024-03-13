@@ -15,12 +15,12 @@ public class Day12_Radio extends CommonBase {
 
     @Test
     public void clickRadio() {
-        WebElement radioMale = webDriver.findElement(By.xpath("//input[@value='Male']"));
+        WebElement radioMale = driver.findElement(By.xpath("//input[@value='Male']"));
         if(radioMale.isEnabled() && !radioMale.isSelected()){
             radioMale.click();
         }
         else{
-            WebElement radioFemale = webDriver.findElement(By.xpath("//input[@value='Female']"));
+            WebElement radioFemale = driver.findElement(By.xpath("//input[@value='Female']"));
             if(!radioFemale.isSelected()){
                 radioFemale.click();
             }

@@ -21,21 +21,21 @@ public class Day12_Select extends CommonBase {
 
     @Test
     public void selectStatus() {
-        Select select = new Select(webDriver.findElement(By.xpath("//select[@id='select-demo']")));
+        Select select = new Select(driver.findElement(By.xpath("//select[@id='select-demo']")));
         List<WebElement> options = select.getOptions();
         System.out.println(options.size());
         //C1: By VisibleText
         select.selectByVisibleText("Monday");
-        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //        Assert.assertEquals("Monday", select.getFirstSelectedOption());
 
         //C2: By Value
         select.selectByValue("Tuesday");
-        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //        Assert.assertEquals("Monday", select.getFirstSelectedOption());
         //C3: by Index
         select.selectByIndex(1);
-        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         Assert.assertEquals("Sunday", select.getFirstSelectedOption().getText());
     }
 }

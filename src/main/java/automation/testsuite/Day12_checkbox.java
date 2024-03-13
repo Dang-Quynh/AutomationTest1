@@ -17,7 +17,7 @@ public class Day12_checkbox extends CommonBase {
 
     @Test
     public void clickSingleCheckbox() {
-        WebElement checkbox1 = webDriver.findElement(By.xpath("//label[normalize-space()='Click on this check box']/child::input"));
+        WebElement checkbox1 = driver.findElement(By.xpath("//label[normalize-space()='Click on this check box']/child::input"));
         if(checkbox1.isSelected()){
             System.out.println("Checkbox 1 đã được checked");
         }
@@ -28,7 +28,7 @@ public class Day12_checkbox extends CommonBase {
 
     @Test
     public void clickMultiCheckbox() {
-        List<WebElement> listCheckbox = webDriver.findElements(By.xpath("(//div[@class='panel-body'])[3]/descendant::input[@type='checkbox']"));
+        List<WebElement> listCheckbox = driver.findElements(By.xpath("(//div[@class='panel-body'])[3]/descendant::input[@type='checkbox']"));
         for(int i = 0; i< listCheckbox.size(); i++){
             if(!listCheckbox.get(i).isSelected()){
                 listCheckbox.get(i).click();
@@ -38,9 +38,9 @@ public class Day12_checkbox extends CommonBase {
 
     @Test
     public void clickMultiCheckbox3() {
-        List<WebElement> listCheckbox = webDriver.findElements(By.xpath("(//div[@class='panel-body'])[3]/descendant::input[@type='checkbox']"));
+        List<WebElement> listCheckbox = driver.findElements(By.xpath("(//div[@class='panel-body'])[3]/descendant::input[@type='checkbox']"));
         for(int i = 1; i<= listCheckbox.size(); i++){
-            WebElement checkbox = webDriver.findElement(By.xpath("(//div[@class='panel-body'])[3]//div[@class='checkbox'][" + (i) + "]//input"));
+            WebElement checkbox = driver.findElement(By.xpath("(//div[@class='panel-body'])[3]//div[@class='checkbox'][" + (i) + "]//input"));
             if(i == 2 && !checkbox.isSelected() ){
                 checkbox.click();
             }

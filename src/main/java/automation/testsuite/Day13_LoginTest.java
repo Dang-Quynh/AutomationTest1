@@ -17,29 +17,29 @@ public class Day13_LoginTest extends CommonBase {
 
     @Test(priority = 1)
     public void loginSuccess(){
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunction("admin@demo.com","riseDemo");
-        Assert.assertTrue(webDriver.findElement(CT_Account.DASHBOARD_TEXT).isDisplayed());
+        Assert.assertTrue(driver.findElement(CT_Account.DASHBOARD_TEXT).isDisplayed());
     }
 
     @Test(priority = 2)
     public void loginFailIncorrectEmail(){
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunction("incorrectEmail@demo.com","riseDemo");
-        Assert.assertTrue(webDriver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
+        Assert.assertTrue(driver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
     }
 
     @Test(priority = 3)
     public void loginFailIncorrectPassword(){
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunction("admin@demo.com","incorrectPassword");
-        Assert.assertTrue(webDriver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
+        Assert.assertTrue(driver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
     }
 
     @Test(priority = 4)
     public void loginFailIncorrectEmailAndPassword(){
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunction("incorrectEmail@demo.com","incorrectPassword");
-        Assert.assertTrue(webDriver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
+        Assert.assertTrue(driver.findElement(CT_Account.LOGIN_FAIL_TEXT).isDisplayed());
     }
 }

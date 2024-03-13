@@ -13,15 +13,15 @@ import org.testng.annotations.Test;
 public class Day15_B2_Flight extends CommonBase {
     @BeforeMethod
     public void openChrome() throws InterruptedException {
-        webDriver = initChromeDriver(CT_Common.URL_techydevs);
+        driver = initChromeDriver(CT_Common.URL_techydevs);
     }
 
     @Test
     public void searchFlightSuccess() throws InterruptedException {
         Day15_Flight_Model flight = new Day15_Flight_Model("Ha Noi","Ho Chi Minh","30042024","","");
-        Day15_Search_Flight searchFlight = new Day15_Search_Flight(webDriver);
+        Day15_Search_Flight searchFlight = new Day15_Search_Flight(driver);
         searchFlight.searchFlight(flight);
-        Assert.assertTrue(webDriver.findElement(Day15_Flight.SEARCH_RESULT_PAGE_TEXT).isDisplayed());
+        Assert.assertTrue(driver.findElement(Day15_Flight.SEARCH_RESULT_PAGE_TEXT).isDisplayed());
     }
 
     @AfterMethod

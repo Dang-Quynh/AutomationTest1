@@ -16,4 +16,8 @@ public class CT_Common {
     public static String URL_alada = "https://alada.vn/";
     public static String URL_alada_signin = "https://alada.vn/tai-khoan/dang-nhap.html";
     public static String URL_techydevs = "https://techydevs.com/demos/themes/html/trizen-demo/trizen/index.html";
+    public static String URL_guru = "https://demo.guru99.com/test/delete_customer.php";
+    public static String URL_automationtesting_alert = "https://demo.automationtesting.in/Alerts.html";
+
+    public static String URL_seleniumpractise_alert = "https://seleniumpractise.blogspot.com/2019/01/alert-demo.html";
 }
