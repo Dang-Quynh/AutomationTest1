@@ -28,6 +28,7 @@ public class CommonBase {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         Thread.sleep(3000);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(initWaitTime));
         return driver;
     }
 
@@ -72,7 +73,7 @@ public class CommonBase {
     {
         WebElement element = getElement(locator);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
-        element.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
     public void sendKeysElement(By locator, String value)

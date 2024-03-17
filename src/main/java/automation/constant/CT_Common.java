@@ -20,4 +20,9 @@ public class CT_Common {
     public static String URL_automationtesting_alert = "https://demo.automationtesting.in/Alerts.html";
 
     public static String URL_seleniumpractise_alert = "https://seleniumpractise.blogspot.com/2019/01/alert-demo.html";
+
+    public static String URL_guru_popup = "https://demo.guru99.com/popup.php";
+    public static String URL_codestart = "https://codestar.vn/";
+    public static String URL_dienmaynhapkhaugiare = "https://dienmaynhapkhaugiare.com.vn/";
+    public static String URL_mediamart = "https://mediamart.vn/";
 }
