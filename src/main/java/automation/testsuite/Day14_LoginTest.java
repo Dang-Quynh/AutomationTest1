@@ -5,20 +5,22 @@ import automation.constant.CT_Account;
 import automation.constant.CT_Common;
 import automation.page.LoginPageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class Day14_LoginTest extends CommonBase {
     @BeforeMethod
-    public void openChrome() throws InterruptedException {
+    @Parameters("browser")
+    public void openDriver(@Optional("chrome") String browserName) throws InterruptedException {
+        driver = setupDriver(browserName);
         driver = initChromeDriver(CT_Common.URL_rise_signin);
     }
 
     // thanh cong
     @Test
-    public void loginSuccessfully(){
+    public void loginSuccessfully() throws InterruptedException {
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.loginFunction("admin@demo.com","riseDemo");
+        Thread.sleep(3000);
         Assert.assertTrue(driver.findElement(CT_Account.DASHBOARD_TEXT).isDisplayed());
 
     }
@@ -61,5 +63,10 @@ public class Day14_LoginTest extends CommonBase {
         LoginPageFactory loginPageFactory = new LoginPageFactory(driver);
         loginPageFactory.loginFunction("admin@demo.com","");
         Assert.assertTrue(driver.findElement(CT_Account.PASSWORD_EMPTY).isDisplayed());
+    }
+
+    @AfterMethod
+    public void closeDriver(){
+        driver.close();
     }
 }

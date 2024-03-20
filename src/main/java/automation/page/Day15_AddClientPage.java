@@ -69,6 +69,7 @@ public class Day15_AddClientPage {
 
     public void addClient(Day15_ClientModel client) throws InterruptedException {
         clientMenu.click();
+        Thread.sleep(2000);
         btnAddClient.click();
         Thread.sleep(2000);
 

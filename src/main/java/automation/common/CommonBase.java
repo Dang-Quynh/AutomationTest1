@@ -4,6 +4,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,9 +19,75 @@ public class CommonBase {
     public int initWaitTime = 10;
     public WebDriverWait wait;
 
+    public WebDriver setupDriver(String browserName) throws InterruptedException {
+        switch (browserName){
+            case "chrome":{
+                driver = initChromeDriver();
+                break;
+            }
+            case "firefox":{
+                driver = initFirefoxDriver();
+                break;
+            }
+            case "edge":{
+                driver = initEdgeDriver();
+                break;
+            }
+            default:
+                System.out.println("BrowserName was incorrect!");
+                driver = initChromeDriver();
+                break;
+        }
+        return driver;
+    }
+
+    public WebDriver initChromeDriver() throws InterruptedException {
+//        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
+        System.out.println("Launching chrome ...");
+        WebDriverManager.chromedriver().clearDriverCache();
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*", "--headless");
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(initWaitTime));
+        return driver;
+    }
+
+    public WebDriver initFirefoxDriver() throws InterruptedException {
+        System.out.println("Launching Firefox ...");
+        WebDriverManager.firefoxdriver().clearDriverCache();
+        WebDriverManager.firefoxdriver().setup();
+
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--remote-allow-origins=*", "--headless");
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        Thread.sleep(3000);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(initWaitTime));
+        return driver;
+    }
+
+    public WebDriver initEdgeDriver() throws InterruptedException {
+        System.out.println("Launching edge ...");
+        WebDriverManager.edgedriver().clearDriverCache();
+        WebDriverManager.edgedriver().setup();
+
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--remote-allow-origins=*", "--headless");
+        driver = new EdgeDriver(options);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(initWaitTime));
+        return driver;
+    }
+
     public WebDriver initChromeDriver(String url) throws InterruptedException {
 //        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
-
+        System.out.println("Launching chrome ...");
         WebDriverManager.chromedriver().clearDriverCache();
         WebDriverManager.chromedriver().setup();
 
@@ -27,7 +97,6 @@ public class CommonBase {
         driver.get(url);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        Thread.sleep(3000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(initWaitTime));
         return driver;
     }
