@@ -30,7 +30,7 @@ public class Day15_Client extends CommonBase {
         loginPage.loginFunction("admin@demo.com", "riseDemo");
         Thread.sleep(2000);
 
-        Day15_ClientModel client = new Day15_ClientModel(1, "Công ty A","2","Hà Đông", "Hà Nội", "1", ".rar", "Việt Nam", "091234567", "https://rise.fairsketch.com/clients","V123", "G123","1" , "VND","VND", "123", true);
+        Day15_ClientModel client = new Day15_ClientModel(1, "Công ty A","Sara Ann","Hà Đông", "Hà Nội", "1", ".rar", "Việt Nam", "091234567", "https://rise.fairsketch.com/clients","V123", "G123","1" , "VND","VND", "123", true);
         Day15_AddClientPage addClientPage = new Day15_AddClientPage(driver);
         addClientPage.addClient(client);
         Assert.assertTrue(checkAddClientSuccess(client));

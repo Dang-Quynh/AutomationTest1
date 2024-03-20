@@ -1,6 +1,7 @@
 package automation.page;
 
 import automation.common.Day15_ClientModel;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,8 +16,12 @@ public class Day15_AddClientPage {
     WebElement radioType_Person;
     @FindBy(id = "company_name")
     WebElement txtCompany;
-    @FindBy(id = "created_by")
-    WebElement dropdownOwner;
+
+    @FindBy(xpath = "//input[@id='s2id_autogen3_search']")
+    WebElement inputSearchOwner;
+    @FindBy(xpath = "//a[@class='select2-choice']")
+    WebElement dropdownToggleOwner;
+
     @FindBy(id = "address")
     WebElement txtAddress;
     @FindBy(id = "city")
@@ -87,9 +92,12 @@ public class Day15_AddClientPage {
             txtCompany.sendKeys(client.getCompany());
         }
 
-//        if (client.getOwner()!= null) {
-//            dropdownOwner.sendKeys(client.getOwner());
-//        }
+        if (client.getOwner()!= null) {
+            dropdownToggleOwner.click();
+            Thread.sleep(1000);
+            inputSearchOwner.sendKeys(client.getOwner());
+            inputSearchOwner.sendKeys(Keys.TAB);
+        }
 
         if (client.getAddress()!= null) {
             txtAddress.clear();
